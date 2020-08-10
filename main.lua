@@ -17,7 +17,7 @@ hero.vx = 0
 hero.vy = 0
 
 local ennemies = {}
-ennemies.x = 500
+ennemies.x = 800
 ennemies.y = 500
 ennemies.w = 0
 ennemies.h = 0
@@ -55,7 +55,15 @@ function love.update(dt)
     if ennemies.frame >= #ennemies.images + 1 then
         ennemies.frame = 1
     end
- 
+    
+    -- déplacement ennemie
+    ennemies.x = ennemies.x - 1
+
+    if ennemies.x == 0 then
+        ennemies.x = 800
+    end
+
+    -- déplacement Hero
     -- Vers la droite
     if love.keyboard.isDown("right") then
         hero.x = hero.x + 1
